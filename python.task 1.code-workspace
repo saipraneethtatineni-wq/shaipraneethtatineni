@@ -1,0 +1,40 @@
+
+wards = [
+    ["General", 20, 18, 5, 2, 3],
+    ["ICU", 10, 10, 4, 1, 2],
+    ["Emergency", 15, 12, 3, 2, 1]
+]
+
+print("HOSPITAL RESOURCE MONITORING")
+
+for ward in wards:
+    name, total, occupied, staff, staff_needed, equipment = ward
+    available = total - occupied
+
+    print("\nWard:", name)
+    print("Available Beds:", available)
+
+    if available == 0:
+        print("Status: No beds available")
+    elif available <= 2:
+        print("Status: Bed shortage warning")
+    else:
+        print("Status: Beds available")
+
+    if staff < staff_needed:
+        print("Staff Shortage:", staff_needed - staff)
+    else:
+        print("Staff: Sufficient")
+
+    if equipment <= 1:
+        print("Equipment: Critical shortage")
+    else:
+        print("Equipment: Sufficient")
+
+    if name == "ICU":
+        print("Priority: HIGH")
+    elif name == "Emergency":
+        print("Priority: URGENT")
+    else:
+        print("Priority: NORMAL")
+
